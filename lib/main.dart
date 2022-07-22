@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:disk_stash/picture_grid.dart';
 import 'package:disk_stash/pop_up_widget.dart';
+import 'package:disk_stash/create_album.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: GridListDemo(),
+      home: MusicForm(),
     );
   }
 }
