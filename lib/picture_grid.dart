@@ -1,14 +1,21 @@
+import 'package:disk_stash/create_album.dart';
 import 'package:flutter/material.dart';
 import 'package:disk_stash/pop_up_widget.dart';
+import 'package:sqflite/sqlite_api.dart';
 
-class GridListDemo extends StatefulWidget {
-  GridListDemo({Key? key}) : super(key: key);
-
+class GridPictures extends StatefulWidget {
+  GridPictures({Key? key, required Database db}) : _db = db,super(key: key);
+  Database _db;
   @override
-  _GridListDemoState createState() => new _GridListDemoState();
+  _GridPicturesState createState() => new _GridPicturesState(_db);
 }
 
-class _GridListDemoState extends State<GridListDemo> {
+class _GridPicturesState extends State<GridPictures> {
+
+  _GridPicturesState(Database db) : _db = db;
+
+  final Database _db;
+
   TextEditingController editingController = TextEditingController();
 
   final List<_Photo> _photos = List<_Photo>.generate(
@@ -91,12 +98,7 @@ class _GridListDemoState extends State<GridListDemo> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          /* TBD: Create method for adding movie or album */
-          showDialog(
-            context: context,
-            builder: (BuildContext context) =>
-                buildPopupDialog(context, "Add a Movie", "To be done :)"),
-          );
+          Navigator.push(context, MaterialPageRoute(builder: (context) => MusicForm()),);
         },
         backgroundColor: Colors.indigo,
         child: const Icon(Icons.add),

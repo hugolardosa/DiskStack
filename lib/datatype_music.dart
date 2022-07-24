@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 class Artist {
   final int id;
   final String name;
@@ -56,6 +58,8 @@ class Album {
   final Type type;
   final String genera;
   final int year;
+  final Uint8List cover;
+
 
 
   const Album({
@@ -65,7 +69,8 @@ class Album {
     required this.recordLabelID, 
     required this.type, 
     required this.genera, 
-    required this.year
+    required this.year,
+    required this.cover
   });
 
   // Convert a RecordLabel into a Map. The keys must correspond to the names of the
@@ -78,7 +83,8 @@ class Album {
       'recordLabelID' : recordLabelID, 
       'type' : type, 
       'genera' : genera, 
-      'year' : year
+      'year' : year,
+      'cover' : cover
     };
   }
 
